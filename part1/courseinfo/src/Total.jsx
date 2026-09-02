@@ -1,7 +1,10 @@
 const Total = (props) => {
   return (
     <p>
-      Number of exercises {props.part1.exercises + props.part2.exercises + props.part3.exercises}
+      Number of exercises{' '}
+      {props.parts[0].exercises +
+        props.parts[1].exercises +
+        props.parts[2].exercises}
     </p>
   )
 }
