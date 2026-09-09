@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Display from './Display.jsx'
 
 const App = () => {
   // Correction : `let` était inutile ici. On ne réassigne jamais directement
@@ -17,8 +18,8 @@ const App = () => {
 
   return (
     <div>
-      {/* Correction : l'énoncé présente le compteur séparément du bouton. */}
-      <div>{counter}</div>
+      {/* Correct : App garde l'état et transmet seulement sa valeur à Display. */}
+      <Display counter={counter} />
 
       {/* Correction : le texte demandé par l'énoncé est « plus » en minuscules. */}
       <button onClick={increaseByOne}>plus</button>
