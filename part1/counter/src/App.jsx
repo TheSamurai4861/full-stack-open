@@ -1,4 +1,7 @@
 import { useState } from 'react'
+// Correction : un composant défini dans un autre fichier doit être importé
+// avant de pouvoir être utilisé dans le JSX de App.
+import Button from './Button.jsx'
 import Display from './Display.jsx'
 
 const App = () => {
@@ -21,14 +24,17 @@ const App = () => {
       {/* Correct : App garde l'état et transmet seulement sa valeur à Display. */}
       <Display counter={counter} />
 
-      {/* Correction : le texte demandé par l'énoncé est « plus » en minuscules. */}
-      <button onClick={increaseByOne}>plus</button>
+      {/*
+        Correction : `plus` est un texte littéral, donc il faut l'écrire entre
+        guillemets. Avec text={plus}, React chercherait une variable nommée plus.
+      */}
+      <Button onClick={increaseByOne} text='plus' />
 
-      {/* Correct : on transmet la fonction sans l'appeler avec des parenthèses. */}
-      <button onClick={setToZero}>zero</button>
+      {/* Même correction : zero est la valeur de la prop, pas une variable. */}
+      <Button onClick={setToZero} text='zero' />
 
-      {/* Correct : ce bouton reçoit le gestionnaire qui décrémente le compteur. */}
-      <button onClick={decreaseByOne}>minus</button>
+      {/* Même correction pour le texte du bouton de décrémentation. */}
+      <Button onClick={decreaseByOne} text='minus' />
     </div>
   )
 }
